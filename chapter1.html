@@ -74,6 +74,13 @@
     .submenu1:hover .sub{
         display:block;
     }
+    /*自定义checkbox 样式*/
+    input[type="checkbox"]{
+        display: block;
+    }
+    input[type="checkbox"]:checked + .checkbox{
+        display:block;
+    }
 </style>
 
 <body>
@@ -125,6 +132,14 @@
     <div class="submenu1">
         fuck
         <div class="sub">hello world</div>
+    </div>
+    <br>
+    <cite>自定义单选/多选按钮样式</cite>
+    <div class="check_box">
+        <label for="">
+            <input type="checkbox">
+            <span class="checkbox"></span>
+        </label>
     </div>
 </body>
 <script></script>
