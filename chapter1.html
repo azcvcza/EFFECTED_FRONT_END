@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,49 +8,125 @@
     <title>能用HTML CSS解决就不用JS</title>
 </head>
 <style>
-    body{
-        width:100%;
+    body {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
     }
-    nav{
+
+    nav {
         background: #58a;
         position: fixed;
-        top:0;
-        width:100%;
+        top: 0;
+        width: 100%;
         display: flex;
         flex-direction: row;
     }
-    a{
+
+    a {
         text-decoration: none;
-        margin:10px;
-        padding:10px;
+        margin: 10px;
+        padding: 10px;
     }
-    nav li{
-        list-style:none;
-        opacity:0.5;
+
+    nav li {
+        list-style: none;
+        opacity: 0.5;
 
     }
-    nav li:hover{
+
+    nav li:hover {
         opacity: 1;
     }
+
+    /*子菜单显隐*/
+    div.submenu {}
+
+    li {
+        display: list-item;
+    }
+
+    .menu {
+        display: none;
+
+    }
+
+    .user:hover+.menu {
+        display: list-item;
+    }
+
+    .menu:hover {
+        display: list-item;
+    }
+
+    ul.menu::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: -20px;
+        width: 100%;
+        height: 20px;
+    }
+    /*子菜单显隐1*/
+    .submenu1 .sub{
+        display: none;
+    }
+    .submenu1:hover .sub{
+        display:block;
+    }
 </style>
+
 <body>
     <cite>菜单悬浮显示</cite>
     <nav>
-        
-        <a href=""><li>hello</li></a> 
-        <a href=""><li>hello</li></a> 
-        <a href=""><li>hello</li></a> 
-        <a href=""><li>hello</li></a> 
-        <a href=""><li>hello</li></a> 
-        <a href=""><li>hello</li></a> 
-        <a href=""><li>hello</li></a> 
-        <a href=""><li>hello</li></a> 
-        <a href=""><li>hello</li></a> 
-           
-        
+
+        <a href="">
+            <li>hello</li>
+        </a>
+        <a href="">
+            <li>hello</li>
+        </a>
+        <a href="">
+            <li>hello</li>
+        </a>
+        <a href="">
+            <li>hello</li>
+        </a>
+        <a href="">
+            <li>hello</li>
+        </a>
+        <a href="">
+            <li>hello</li>
+        </a>
+        <a href="">
+            <li>hello</li>
+        </a>
+        <a href="">
+            <li>hello</li>
+        </a>
+        <a href="">
+            <li>hello</li>
+        </a>
+
+
     </nav>
     <br>
     <cite>子菜单显隐</cite>
+    <div class="submenu">
+        <li class="user">user</li>
+        <ul class="menu">
+            <li>setting</li>
+            <li>logout</li>
+        </ul>
+
+    </div>
+    <br>
+    <cite>子菜单显隐1</cite>
+    <div class="submenu1">
+        fuck
+        <div class="sub">hello world</div>
+    </div>
 </body>
 <script></script>
+
 </html>
