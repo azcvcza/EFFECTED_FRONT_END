@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>画三角形(div)</title>
+</head>
+<style>
+    /*利用border方向来实现*/
+        .triangle{
+            border-left:50px solid transparent;
+            border-right:50px solid transparent;
+            border-top:50px solid transparent;
+            border-bottom:50px solid #999;
+            width:0px;
+            height:0px;
+            background:#58a;
+        }
+        .triangle1{
+            border-left:50px solid transparent;
+            border-right:50px solid transparent;
+            border-top:50px solid #666;
+            border-bottom:50px solid transparent;
+            width:0px;
+            height:0px;
+            background:#58a;
+        }
+        .triangle2{
+            border-left:50px solid transparent;
+            border-right:50px solid #333;
+            border-top:50px solid transparent;
+            border-bottom:50px solid transparent;
+            width:0px;
+            height:0px;
+            background:#58a;
+        }
+        .triangle3{
+            border-left:50px solid #000;
+            border-right:50px solid transparent;
+            border-top:50px solid transparent;
+            border-bottom:50px solid transparent;
+            width:0px;
+            height:0px;
+            background:#58a;
+        }
+        /*使用伪元素实现*/
+        .presudo{
+            width:300px;
+            height:80px;
+            border:1px solid #ccc;
+            position:relative;
+        }
+        /*父元素使用relative,子元素使用absolute将相对父元素定位*/
+        .presudo::before{
+            content:"";
+            position:absolute;
+            left:-10px;
+            top:34px;
+            border-top:6px solid transparent;
+            border-bottom:6px solid transparent;
+            border-right:10px solid #ccc;
+        }
+        /*after 用来覆盖 before*/
+        .presudo::after{
+            content:"";
+            position:absolute;
+            left:-8px;
+            top:34px;
+            border-top:6px solid transparent;
+            border-bottom:6px solid transparent;
+            border-right:10px solid #fff;
+        }
+        /*画分割线*/
+        .or{
+            text-align: center;
+            position:relative;
+        }
+        .or::after,.or::before{
+            content:"";
+            position:absolute;
+            top:12px;
+            height:1px;
+            background-color: #ccc;
+            width:30%;
+        }
+        .or::after{
+            right:0;
+
+        }
+        .or::before{
+            left:0;
+        }
+        /*CSS计数*/
+        .choose{
+            counter-reset: fruit;
+        }
+        .choose input:checked{
+            counter-increment: fruit;
+        }
+        .count::before{
+            content:counter(fruit);
+        }
+    </style>
+
+<body>
+    <div class="triangle"></div>
+    <div class="triangle1"></div>
+    <div class="triangle2"></div>
+    <div class="triangle3"></div>
+    <div class="presudo">hello world</div>
+    <p class="or">Or</p>
+    <div class="choose">
+        <label for=""><input type="checkbox">apple</label>
+        <label for=""><input type="checkbox">banana</label>
+        <p>you choose <span class="count">what</span></p>
+    </div>
+</body>
+
+</html>
